@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Form Demo - MySQL</title>
+  <link rel="shortcut icon" href="images/logo.png" type="image/jpeg" />
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+</head>
+
+<body>
+
+<div class="container-fluid p-lg-3 pl-0 pr-0" style="margin-left: 0%;margin-right: 0%;width: auto;background: #f3f3f3">
+  <div class="justify-content-center text-center" >
+    <div class="col-lg-6 d-block mx-auto p-0">
+          <div class="card shadow-sm d-block mx-auto" style="width:auto">
+            <div class="card-header text-left" style="background-color: #2980B9;color: #ffffff">
+              <i class="fa fa-pen mr-2"></i>Form Demo - MySQL
+            </div>
+            <div class="card-body d-block mx-auto " style="alignment: center; width: auto">
+              <div class="container-fluid p-0" id="grievance-content">
+		
+				<% if(isAdded) { %>
+					<div id="afterLayout" class="h3 m-3 alert-success p-5"> <i style="height: 50px; width: 50px" class="fa fa-check-circle mr-2"></i><br>Grievance Submitted Successfully !</div>
+				<% } else { %>
+                <div id="errorMsg" style="display: none" class="m-2 text-left text-danger">Complaint</div>
+                <form name="grForm" id="grForm" action="/Add" method="post">
+
+				  <div class="form-group">
+                    <div class="input-group-prepend">
+
+                      <span class="input-group-text" style="border-bottom-right-radius: 0;border-top-right-radius: 0"><i class="fa fa-user"style="color: #1A5276"></i></span>
+                      <select class="form-control" style="border-bottom-left-radius: 0;border-top-left-radius: 0; border-left: transparent" id="complainant" name="complainant"  required>
+                        <option value="" disabled selected>Select Complainant</option>
+						<option>Student</option>
+                        <option>Parent</option>
+                        <option>Other</option>
+                 </select>
+                    </div>
+
+                  </div>	
+					
+                  <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                      <i class="input-group-text fa fa-user"style="color: #1A5276"></i>
+                    </div>
+                    <input type="text" id="name" name="name" class="form-control"  placeholder="Name" required>
+
+                  </div>
+                  <div class="form-group">
+                    <div class="input-group-prepend">
+
+                      <span class="input-group-text" style="border-bottom-right-radius: 0;border-top-right-radius: 0"><i class="fa fa-building"style="color: #1A5276"></i></span>
+                      <select class="form-control" style="border-bottom-left-radius: 0;border-top-left-radius: 0; border-left: transparent" id="branch" name="branch">
+                        <option value="" disabled selected>Select Branch</option>
+                        <option>Information Technology</option>
+                        <option>Computer Engineering</option>
+                        <option>Mechanical Engineering</option>
+                        <option>Civil Engineering</option>
+                        <option>Electrical Engineering</option>
+                        <option>Electronics & Telecommunication Engineering</option>
+                        <option>Pharmacy</option>
+                      </select>
+                    </div>
+
+                  </div>
+                  <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                      <i class="input-group-text fa fa-graduation-cap"style="color: #1A5276"></i>
+                    </div>
+                    <input type="text" id="fieldClass" name="fieldClass" class="form-control" placeholder="Class" required>
+                      
+                  </div>
+                  <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                      <i class="input-group-text fa fa-mobile-alt"style="color: #1A5276"></i>
+                    </div>
+                    <input type="number" id="mobileNumber" name="mobileNumber" class="form-control" placeholder="Mobile Number" required>
+
+                  </div>
+                  <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                      <i class="input-group-text fa fa-at"style="color: #1A5276"></i>
+                    </div>
+                    <input type="email" id="email" name="email" class="form-control" placeholder="Email" required>
+
+                  </div>
+                  <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                      <i class="input-group-text fa fa-comment-alt" style="color: #1A5276"></i>
+                    </div>
+                    <textarea class="form-control" id="fieldComplaint" name="fieldComplaint" placeholder="Any Complain" rows="3"></textarea>
+
+                  </div>
+                  <input type="submit" id="submitBtn" class="btn btn-primary">
+                  <div id="progress" style="display: none" class="loader mx-auto m-2"></div>
+                </form>
+				<% } %>
+
+				
+                </div>
+            </div>
+          </div>
+          </div>
+		</div>
+	</div>
+	 
+
+
+</body>
+</html>
